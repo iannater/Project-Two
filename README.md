@@ -20,3 +20,10 @@ As a food lover, I want to be able to rank and comment on places I eat, so that 
 1. Ability to book a reservation with open table.
 2. Ability to comment on friends reviews.
 3. Ability to see all of their restaurants on a map.
+
+### Steps to completion 
+1. Login/Signup page needs to work and add that info to the database
+2. User lands on a review page where they can add their personal review (picture and above info)
+3. User complete form and submits, that data is then stored in our db.
+4. User can then click on a tab that takes them to a page that shows all current reviews
+5. User can filter on the page to see all reviews or just theirs. They can also filter other things to narrow their preferences.
