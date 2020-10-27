@@ -9,43 +9,43 @@
     <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bodybackground">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h2>Sign Up for FoodBook</h2>
+    <div class="container ">
+        <div class="row centerclass">
+            <div class="col-md-6 col-md-offset-3 ">
+                <h2 class="form-group centerclass">Sign Up for FoodBook</h2>
                 <form class="signup">
                  
                     <div class="form-group">
-                        <label for="firstName">First Name</label>
+                        <label for="firstName"></label>
                         <input type="firstName" class="form-control" id="firstNameinput" placeholder="First Name">
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Last Name</label>
+                        <label for="lastName"></label>
                         <input type="lastName" class="form-control" id="lastNameinput" placeholder="Last Name">
                     </div>
                     <div class="form-group">
-                        <label for="UserEmail">Email address</label>
+                        <label for="UserEmail"></label>
                         <input type="email" class="form-control" id="email-input" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="UserPassword">Password</label>
+                        <label for="UserPassword"></label>
                         <input type="password" class="form-control" id="password-input" placeholder="UserPassword">
                     </div>
                     <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <span class="sr-only">Error:</span> <span class="msg"></span>
                     </div>
-                    <button type="submit" class="btn btn-default">Sign Up</button>
+                    <button type="submit" class="btn btn-default centerclass">Sign Up</button>
                 </form>
                 <br />
-                <p>Or log in <a href="/login">here</a></p>
+                <p class="form-group centerclass">Or log in <a href="/login">here</a></p>
             </div>
         </div>
     </div>
