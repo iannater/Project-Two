@@ -9,6 +9,7 @@ As a food lover, I want to be able to rank and comment on places I eat, so that 
 2. If they have already created entries they will see them displayed and have the ability to sort based on ranking and other variables.
 3. They will then be able to create a new entry for a restaurant. In the entry they will be able to add the restaurant name, their personal rating, waiter name, food they ate, occasion(birthday,anniversary, etc), and upload an image. 
 4. When they save the entry it will get loaded into our database so that they can reference it later.
+![App Flow Screenshot](./assets/appflow.png)
 
 #### Must Have
 1. Ability to login
