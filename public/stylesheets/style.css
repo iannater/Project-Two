@@ -28,3 +28,34 @@ form.login {
 .card-text{
   font-size: 15px;
 }
+
+.resultsRow{
+  margin-top: -5px;
+}
+
+#logout{
+  font-size: 15px;
+}
+
+.navbar-custom{
+  background-color: lightgrey;
+}
+
+.dropdown{
+  margin: 5px;
+}
+.occasion{
+  text-align: right;
+}
+
+.dropSize{
+  font-size: 10px;
+}
+
+.searchAdd{
+  margin: 10px;
+}
+
+.navbar{
+  padding: 0px;
+}
