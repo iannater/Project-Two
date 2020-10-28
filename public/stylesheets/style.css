@@ -35,6 +35,12 @@ form.login {
   background-size: 100%, 100%;
 }
 
+.loginbackground {
+  background-image: url("https://quintonil.com/wp-content/uploads/2019/06/banner1.png");
+  background-color: #cccccc;
+  background-size: 100%, 100%;
+}
+
 .form-group {
   color: white;
 }
