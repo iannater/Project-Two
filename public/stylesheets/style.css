@@ -94,3 +94,14 @@ form.login {
   opacity: 90%;
   padding: auto;
 }
+
+
+.main-form {
+  margin: auto;
+}
+
+.newReview {
+  background-image: url("../assets/brooke-lark-4J059aGa5s4-unsplash.jpg");
+  background-color: #cccccc;
+  background-size: 100%, 100%;
+}
