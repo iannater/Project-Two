@@ -6,7 +6,13 @@ $(document).ready(() => {
     });
 
     $.get("/api/restaurant_data").then(data => {
-        console.log(data);
+        for (let index = 0; index < data.length; index++) {
+            const resName = data[index].restaurantName;
+            // $(`#restaurantResult${index}`).text(data[index].restaurantName)
+           
+            console.log(resName)   
+        }
+        
     })
 });
 
