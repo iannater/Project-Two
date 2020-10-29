@@ -54,4 +54,19 @@ module.exports = (app) => {
             });
         }
     });
+
+    app.get("/api/restaurant_data", (req, res) => {
+        const query = {};
+        if (req.user) {
+            query.userId = req.user.id;
+        };
+        
+
+        // returning all restaurants
+        db.Restaurant.findAll({
+            where: query
+        }).then((dbRestaurant) => {
+            res.json(dbRestaurant);
+        });
+    });
 };

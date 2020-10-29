@@ -24,8 +24,17 @@ module.exports = (sequelize, DataTypes) => {
         price: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     });
+
+    Restaurant.associate = (db) => {
+        Restaurant.belongsTo(db.User)
+    }
+
     return Restaurant;
 };
 
