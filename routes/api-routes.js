@@ -18,6 +18,7 @@ module.exports = (app) => {
     // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
     // otherwise send back an error
     app.post("/api/signup", (req, res) => {
+        console.log(req.body);
         db.User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -26,7 +27,8 @@ module.exports = (app) => {
         }).then(() => {
             res.redirect(307, "/api/login");
         }).catch(err => {
-            res.status(401).json(err);
+            console.warn(`failed to create user: ${err.message}`);
+            res.status(500).json(err);
         });
     });
 
@@ -45,6 +47,8 @@ module.exports = (app) => {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             res.json({
+                firstName: req.user.firstName,
+                lastName: req.user.lastName,
                 email: req.user.email,
                 id: req.user.id
             });
