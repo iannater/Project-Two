@@ -43,5 +43,10 @@ module.exports = (sequelize, DataTypes) => {
             null
         );
     });
+    
+    User.associate = (db) => {
+        User.hasMany(db.Restaurant)
+    };
+
     return User;
 };
