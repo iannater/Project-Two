@@ -59,6 +59,9 @@ form.login {
   padding: 0px;
 }
 
+.membersnavbar{
+  background-color: lightskyblue;
+}
 
 .bodybackground {
   background-image: url("../assets/foodbook.jpeg");
@@ -81,4 +84,13 @@ form.login {
   align-items: center;
 }
 
+.reviewbutton{
+  margin: auto;
+  padding: auto;
+}
 
+.reviewcolor {
+  background-color: lightsalmon;
+  opacity: 90%;
+  padding: auto;
+}
