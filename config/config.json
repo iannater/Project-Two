@@ -1,9 +1,10 @@
 {
     "development": {
         "username": "root",
-        "password": "BriggoK2",
+        "password": Null,
+
         "database": "passport_demo",
-        "host": "127.0.0.1",
+        "host": "localhost",
         "dialect": "mysql"
     },
     "test": {

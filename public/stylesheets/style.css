@@ -59,3 +59,20 @@ form.login {
 .navbar{
   padding: 0px;
 }
+
+.bodybackground {
+  background-image: url("../../assets/foodbook.jpeg");
+  background-color: #cccccc;
+  background-size: 100%, 100%;
+}
+
+.form-group {
+  color: white;
+}
+
+.centerclass {
+  text-align: center;
+  align-items: center;
+}
+
+
