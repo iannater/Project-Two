@@ -60,7 +60,7 @@ module.exports = (app) => {
         if (req.user) {
             query.userId = req.user.id;
         };
-        
+
 
         // returning all restaurants
         db.Restaurant.findAll({
@@ -69,4 +69,19 @@ module.exports = (app) => {
             res.json(dbRestaurant);
         });
     });
+
+
+
+    app.get("/api/members", (req, res) => {
+        db.Restaurant.findAll((data) => {
+            const viewData = {
+                restaurants: data
+            };
+            console.log(viewData);
+            res.render("home", viewData)
+    
+        })
+    
+    })
 };
+
