@@ -5,6 +5,11 @@ $(document).ready(() => {
         $(".member-name").text(data.email);
     });
 
+    $("#addreview").on("click", event => {
+        event.preventDefault();
+       console.log("You succesfully clikced addreveiew button on the internet")
+       $.post("/api/newReview")
+    });
 
     
     $.get("/api/restaurant_data").then(data => {

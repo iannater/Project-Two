@@ -9,17 +9,17 @@
 <link href="stylesheets/style.css" rel="stylesheet">
 <link rel="icon" href="../public/assets/FoodBookLogo.png">
 </head>
-<body class="text-center newReview ">
+<body class="text-center newReview">
     <H1 class="reviewTitle">Add to Your Foodbook!</H1>
     <section class="main-form" id="filterBtn">
-        <form class="col-6 main-form">
+        <form class="col-6 main-form" id="reviewForm">
             <div class="form-group"style="color:black">
               <label for="restaurantInput">Restaurant Name</label>
               <input type="name" class="form-control" id="restaurantInput" placeholder="Name">
             </div>
             <div class="form-group" style="color:black">
                 <label for="foodTypeinput">Food Type</label>
-                <select class="form-control" id="foodTypeinput" placeholder="Type">
+                <select class="form-control" id="foodTypeInput" placeholder="Type">
                   <option>American</option>
                   <option>Asian</option>
                   <option>Italian</option>
@@ -129,8 +129,8 @@
               </select>
             </div>
             <div class="form-group" style= "color:black">
-                <label for="priceinput">Price</label>
-                <select class="form-control" id="priceinput">
+                <label for="priceInput">Price</label>
+                <select class="form-control" id="priceInput">
                   <option>$</option>
                   <option>$$</option>
                   <option>$$$</option>
@@ -138,8 +138,8 @@
                 </select>
               </div>
               <div class="form-group" style="color:black">
-                <label for="occassionInput">Occassion</label>
-                <select class="form-control" id="occassionInput" placeholder=":)">
+                <label for="occasionInput">Occasion</label>
+                <select class="form-control" id="occasionInput" placeholder=":)">
                   <option>Casual</option>
                   <option>Date</option>
                   <option>Night Out</option>
@@ -154,16 +154,19 @@
               </div>
             <div class="form-group"style="color:black">
                 <label for="zipCodeinput">Zip Code</label>
-                <input type="name" class="form-control" id="zipCodeinput" placeholder="#">
+                <input type="name" class="form-control" id="zipCodeInput" placeholder="#">
               </div>
             
             <div class="form-group"style="color:black">
-              <label for="exampleFormControlTextarea1">Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-dark" id="reviewSubmit">Submit Review</button>
             </div>
           </form>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/members.js"></script>
+    <script type="text/javascript" src="js/restaurant.js"></script>
 </body>
 </html>

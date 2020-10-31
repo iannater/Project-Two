@@ -5,6 +5,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             unique: false
         },
+        foodType: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            // If no requirement, do not check for it.
+        },
         description: {
             type: DataTypes.STRING,
             allowNull: true
@@ -26,11 +31,9 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
     });
-
     Restaurant.associate = (db) => {
         Restaurant.belongsTo(db.User)
     }
-
     return Restaurant;
 };
 

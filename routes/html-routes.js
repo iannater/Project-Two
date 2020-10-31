@@ -26,4 +26,9 @@ module.exports = (app) => {
     app.get("/members", isAuthenticated, (req, res) => {
         res.sendFile(path.join(__dirname, "../public/members.html"));
     });
+
+    app.get("/newReview", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/newReview.html"));
+    });
+
 };
