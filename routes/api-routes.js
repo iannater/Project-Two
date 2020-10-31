@@ -61,7 +61,6 @@ module.exports = (app) => {
             query.userId = req.user.id;
         };
 
-
         // returning all restaurants
         db.Restaurant.findAll({
             where: query
@@ -71,9 +70,8 @@ module.exports = (app) => {
     });
 
 
-
     app.get("/api/members", (req, res) => {
-        db.Restaurant.findAll((data) => {
+        db.Restaurant.findAll().then((data) => {
             const viewData = {
                 restaurants: data
             };
@@ -83,5 +81,32 @@ module.exports = (app) => {
         })
     
     })
+    app.post("/api/newReview", (req, res) => {
+        console.log("reviews post:", req.body)
+                db.Restaurant.create({
+                    restaurantName: req.body.restName,
+                    description: req.body.description,
+                    rating: req.body.rating,
+                    foodType: req.body.foodType,
+                    zipcode: req.body.zipcode,
+                    occasion: req.body.occasion,
+                    price: req.body.price,
+                    UserId: 1
+                }).then(() => {
+                    res.json({});
+                }).catch(err => {
+                    console.warn(`failed to create restaurant:`, `${err.message}`);
+                    res.status(500).json(err);
+                });
+                console.log("create restaurant:", req.body)
+    }); 
+    
+
 };
+
+
+
+
+
+
 
