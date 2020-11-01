@@ -83,6 +83,10 @@ module.exports = (app) => {
     })
     app.post("/api/newReview", (req, res) => {
         console.log("reviews post:", req.body)
+        const query = {};
+        if (req.user) {
+            query.userId = req.user.id;
+        };
                 db.Restaurant.create({
                     restaurantName: req.body.restName,
                     description: req.body.description,
@@ -91,7 +95,7 @@ module.exports = (app) => {
                     zipcode: req.body.zipcode,
                     occasion: req.body.occasion,
                     price: req.body.price,
-                    UserId: 1
+                    UserId: query.userId
                 }).then(() => {
                     res.json({});
                 }).catch(err => {
