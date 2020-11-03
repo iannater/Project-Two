@@ -18,7 +18,12 @@
         <p id="profileName">Ian's Foodbook</p>
         <div class="row justify-content-center">
             <div class="col-2">
-                <input type="search" id="friendSearch" name="fsearch" placeholder="Search Friends"><input type="submit">
+                <form id="friendSearch">
+                    <label for="friendName">Friend Name</label>
+                    <input type="text" id="friendName" name="friendName">
+                    <input type="submit" value="Submit">
+                 </form>
+                <!-- <input type="search" id="friendSearch" name="fsearch" placeholder="Search Friends"><input type="submit"> -->
                 <a class="navbar-brand" href="/logout">
                     <p id="logout">Logout </p>
                 </a>
@@ -38,7 +43,7 @@
             <div class="row justify-content-md-center">
                 <div class="col-1 dropdown">
                     <select name="price" class="dropSize">
-                        <option value="price">Price</option>
+                        <option selected disabled>Price</option>
                         <option value="$">$</option>
                         <option value="$$">$$</option>
                         <option value="$$$">$$$</option>
@@ -46,7 +51,7 @@
                 </div>
                 <div class="col-1 dropdown">
                     <select name="rating" class="dropSize">
-                        <option value="rating">Rating</option>
+                        <option selected disabled>Rating</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -57,13 +62,13 @@
                 </div>
                 <div class="col-1 dropdown">
                     <select name="location" class="dropSize">
-                        <option value="location">Location</option>
+                        <option selected disabled>Location</option>
                         <option value="austin">Austin</option>
                     </select>
                 </div>
                 <div class="col-1 dropdown">
                     <select name="foodType" class="dropSize">
-                        <option value="foodType">Food Type</option>
+                        <option selected disabled>Food Type</option>
                         <option value="american">American</option>
                         <option value="asian">Asian</option>
                         <option value="italian">Italian</option>
@@ -72,7 +77,7 @@
                 </div>
                 <div class="col-1 dropdown" id="occasion">
                     <select name="occasion" class="dropSize">
-                        <option value="occasion">Occasion</option>
+                        <option selected disabled>Occasion</option>
                         <option value="quickBite">Quick Bite</option>
                         <option value="birthday">Birthday</option>
                         <option value="date">Date</option>

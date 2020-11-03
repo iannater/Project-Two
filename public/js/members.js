@@ -18,6 +18,75 @@ $(document).ready(() => {
        $.post("/api/newReview")
     });
 
+    function displayFriend ( {id} ) {
+        console.log(id);
+        $.get("/api/restaurant_data/" + id).then(data => {
+            console.log(data)
+            for (let index = 0; index < data.length; index++) {
+                const resName = data[index].restaurantName;
+                const foodType = data[index].foodType
+                const rating = data[index].rating
+                const description = data[index].description
+                const occasion = data[index].occasion
+                const price = data[index].price
+                // $(`#restaurantResult${index}`).text(data[index].restaurantName)
+                console.log(resName, foodType, rating, description, occasion, price)
+                const cardBody = `
+                <div class="container">
+                <div class="row justify-content-center">
+                <div class="card shadow  bg-white rounded" style="width: 50rem; reviewCard">
+                <img src="./public/assets/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" class="card-img-top" alt="...">
+                <a data-resName="${resName}" class="deleteReview" href="/members" style="text-align: right" style="color: black" style="margin-right:10px">X</a>
+                <div class="card-body">
+                    <div class="row">
+                        <p id="restaurant" class="filterTitle col-3">Restaurant</p>
+                        <p id="foodType" class="filterTitle col-2">Food Type</p>
+                        <p id="rank" class="filterTitle col-2">Rank</p>
+                        <p id="price" class="filterTitle col-2">Price</p>
+                        <p id="occasion" class="filterTitle col-3">Occasion</p>
+                    </div>
+                    <div class="row resultsRow">
+                        <div class="col-3">
+                            <p id="restaurantResult" class="results ">${resName}</p>
+                        </div>
+                        <div class="col-2">
+                            <p id="restaurantResult" class="results ">${foodType}</p>
+                        </div>
+                        <div class="col-2">
+                            <p id="rankResult" class="results">${rating}</p>
+                        </div>
+                        <div class="col-2">
+                            <p id="priceResult" class="results">${price}</p>
+                        </div>
+                        <div class="col-3">
+                            <p id="occasionResult" class="results">${occasion}</p>
+                        </div>
+                    </div>
+                    <p class="noteTitle">Notes</p>
+                    <p class="card-text">${description}
+                    </p>
+                </div>
+            </div>
+            </div>
+            </div>`;
+    
+            $("#cardPopulation").prepend(cardBody);
+            }
+            
+        })
+    }
+
+    // find friend id api call
+    $("#friendSearch").submit("click", event => {
+        event.preventDefault();
+        console.log("You succesfully clicked search friend button");
+        let friend = $("#friendName").val();
+        console.log("the user's friend name is: " + friend);
+        $.get(`/api/findFriendId/${friend}`).then(data =>{
+            console.log(data);
+            displayFriend(data[0]);
+        })
+     });
 
 
     const apiDelete = (data) => {
@@ -96,8 +165,10 @@ $(document).ready(() => {
         }
         
     })
-
-
+    $("#filterBtn").on("change", "select", function (event) {
+        console.log(event)
+    })   
+ 
 });
 
 
