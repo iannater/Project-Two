@@ -111,9 +111,6 @@ $(document).ready(() => {
        apiDelete(resname);
     });
 
-    
-
-
     $.get("/api/restaurant_data").then(data => {
         for (let index = 0; index < data.length; index++) {
             const resName = data[index].restaurantName;
@@ -122,13 +119,11 @@ $(document).ready(() => {
             const description = data[index].description
             const occasion = data[index].occasion
             const price = data[index].price
-            // $(`#restaurantResult${index}`).text(data[index].restaurantName)
-            console.log(resName, foodType, rating, description, occasion, price)
             const cardBody = `
             <div class="container">
             <div class="row justify-content-center">
-            <div class="card shadow  bg-white rounded" style="width: 50rem; reviewCard">
-            <img src="./public/assets/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" class="card-img-top" alt="...">
+            <div class="card shadow  bg-white rounded" style="width: 35rem; reviewCard">
+            <img src="/assets/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" class="card-img-top" alt="..." height="300px">
             <a data-resName="${resName}" class="deleteReview" href="/members" style="text-align: right" style="color: black" style="margin-right:10px">X</a>
             <div class="card-body">
                 <div class="row">
