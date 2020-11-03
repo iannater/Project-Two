@@ -91,7 +91,8 @@ module.exports = (app) => {
              db.Restaurant.create({
                 restaurantName: req.body.restName,
                 description: req.body.description,
-                rating: req.body.rating,                                                foodType: req.body.foodType,
+                rating: req.body.rating,                                               
+                foodType: req.body.foodType,
                 zipcode: req.body.zipcode,
                 occasion: req.body.occasion,
                 price: req.body.price,
