@@ -84,7 +84,9 @@ $(document).ready(() => {
         console.log("the user's friend name is: " + friend);
         $.get(`/api/findFriendId/${friend}`).then(data =>{
             console.log(data);
-            displayFriend(data[0]);
+            for (let i=0; i < data.length; i++){
+                displayFriend(data[i]);
+            }   
         })
      });
 
@@ -165,9 +167,56 @@ $(document).ready(() => {
         }
         
     })
-    $("#filterBtn").on("change", "select", function (event) {
-        console.log(event)
+
+    $("#changePrice").on("change", "select", function (event) {
+        event.preventDefault();
+        console.log("You succesfully changed the price");
+        let newPrice = $("#changePrice option:selected").text()
+        console.log("the new price to search for is: " + newPrice);
+        $.get(`/api/filterBtn/${newPrice}`).then(data =>{
+            console.log(data);
+        })
     })   
+
+    $("#changeRating").on("change", "select", function (event) {
+        event.preventDefault();
+        console.log("You succesfully changed the rating");
+        let newRating = $("#changeRating option:selected").val()
+        console.log("the new rating to search for is: " + newRating);
+        $.get(`/api/filterRating/${newRating}`).then(data =>{
+            console.log(data);
+        })
+    })
+
+    $("#changeLocation").on("change", "select", function (event) {
+        event.preventDefault();
+        console.log("You succesfully changed the location");
+        let newLocation = $("#changeLocation option:selected").val()
+        console.log("the new location to search for is: " + newLocation);
+        $.get(`/api/filterLocation/${newLocation}`).then(data =>{
+            console.log(data);
+        })
+    })
+
+    $("#changeFoodType").on("change", "select", function (event) {
+        event.preventDefault();
+        console.log("You succesfully changed the food type");
+        let newFoodType = $("#changeFoodType option:selected").text();
+        console.log("the new food type to search for is: " + newFoodType);
+        $.get(`/api/filterFoodType/${newFoodType}`).then(data =>{
+            console.log(data);
+        })
+    })
+
+    $("#changeOccasion").on("change", "select", function (event) {
+        event.preventDefault();
+        console.log("You succesfully changed the occasion");
+        let newOccasion = $("#changeOccasion option:selected").text();
+        console.log("the new occasion to search for is: " + newOccasion);
+        $.get(`/api/filterOccasion/${newOccasion}`).then(data =>{
+            console.log(data);
+        })
+    })
  
 });
 

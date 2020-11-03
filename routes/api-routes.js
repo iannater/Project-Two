@@ -126,13 +126,103 @@ module.exports = (app) => {
             query.firstName = req.params.firstName;
             console.log(query.firstName);
         };
-        const friendID = db.User.findAll({
+        db.User.findAll({
             where: {
                 firstName: query.firstName
             }
         }).then((data) => {
             
             console.log("Your friends ID: " + data );
+            res.json(data);      
+       });
+    });
+
+    app.get("/api/filterBtn/:price", (req, res) => {
+        console.log("finding the right price");
+        const query = {};
+        if (req) {
+            query.price = req.params.price;
+            console.log(query.price);
+        };
+        db.Restaurant.findAll({
+            where: {
+                price: query.price
+            }
+        }).then((data) => {
+            
+            console.log("Your restaurants are: " + data );
+            res.json(data);      
+       });
+    });
+
+    app.get("/api/filterRating/:rating", (req, res) => {
+        console.log("finding the right rating");
+        const query = {};
+        if (req) {
+            query.rating = req.params.rating;
+            console.log(query.rating);
+        };
+        db.Restaurant.findAll({
+            where: {
+                rating: query.rating
+            }
+        }).then((data) => {
+            
+            console.log("Your restaurants are: " + data );
+            res.json(data);      
+       });
+    });
+
+    app.get("/api/filterLocation/:zipcode", (req, res) => {
+        console.log("finding the right zipcode");
+        const query = {};
+        if (req) {
+            query.zipcode = req.params.zipcode;
+            console.log(query.zipcode);
+        };
+        db.Restaurant.findAll({
+            where: {
+                zipcode: query.zipcode
+            }
+        }).then((data) => {
+            
+            console.log("Your restaurants are: " + data );
+            res.json(data);      
+       });
+    });
+
+    app.get("/api/filterFoodType/:foodType", (req, res) => {
+        console.log("finding the right food type");
+        const query = {};
+        if (req) {
+            query.foodType = req.params.foodType;
+            console.log(query.foodType);
+        };
+        db.Restaurant.findAll({
+            where: {
+                foodType: query.foodType
+            }
+        }).then((data) => {
+            
+            console.log("Your restaurants are: " + data );
+            res.json(data);      
+       });
+    });
+
+    app.get("/api/filterOccasion/:occasion", (req, res) => {
+        console.log("finding the right occasion");
+        const query = {};
+        if (req) {
+            query.occasion = req.params.occasion;
+            console.log(query.occasion);
+        };
+        db.Restaurant.findAll({
+            where: {
+                occasion: query.occasion
+            }
+        }).then((data) => {
+            
+            console.log("Your restaurants are: " + data );
             res.json(data);      
        });
     });
