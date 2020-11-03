@@ -56,12 +56,13 @@ module.exports = (app) => {
         }
     });
 
-    app.get("/api/restaurant_data", (req, res) => {
+    app.get("/api/restaurant_data/:id?", (req, res) => {
         const query = {};
-        if (req.user) {
-            query.userId = req.user.id;
+        let userId = req.params.id;
+        if (!userId) {
+            userId = req.user.id;
         };
-
+        query.userId = userId
         // returning all restaurants
         db.Restaurant.findAll({
             where: query
@@ -115,7 +116,26 @@ module.exports = (app) => {
         res.status(500).json(err);
     });
 
-      });
+    });
+
+    // find user by id api call
+    app.get("/api/findFriendId/:firstName", (req, res) => {
+        console.log("starting to find friend id");
+        const query = {};
+        if (req) {
+            query.firstName = req.params.firstName;
+            console.log(query.firstName);
+        };
+        const friendID = db.User.findAll({
+            where: {
+                firstName: query.firstName
+            }
+        }).then((data) => {
+            
+            console.log("Your friends ID: " + data );
+            res.json(data);      
+       });
+    });
       
 };
 
