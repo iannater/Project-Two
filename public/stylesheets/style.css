@@ -43,9 +43,6 @@ form.login {
 .dropdown{
   margin: 5px;
 }
-.occasion{
-  text-align: right;
-}
 
 .dropSize{
   font-size: 10px;
@@ -59,7 +56,7 @@ form.login {
   padding: 0px;
 }
 
-.membersnavbar{
+.membersNavbar{
   background-color: lightskyblue;
 }
 
@@ -104,4 +101,7 @@ form.login {
   background-image: url("../assets/brooke-lark-4J059aGa5s4-unsplash.jpg");
   background-color: #cccccc;
   background-size: 100%, 100%;
+}
+.profileName{
+text-align: center;
 }

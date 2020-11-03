@@ -13,22 +13,24 @@
 
 <body>
 
-    <nav class="navbar navbar-default membersnavbar">
-        <img src="/assets/FoodBookLogo.png" width="60" height="60" alt="" loading="lazy">
+    <nav class="navbar navbar-default membersNavbar">
+        <img src="/assets/FoodBookLogo.png" width="70" height="70" alt="" loading="lazy">
         <p id="profileName">Ian's Foodbook</p>
-        <div class="row justify-content-center">
-            <div class="col-2">
+        <div class="row">
+            <div class="col">
                 <form id="friendSearch">
-                    <label for="friendName">Friend Name</label>
-                    <input type="text" id="friendName" name="friendName">
+                    <!-- <label for="friendName">Friend Name</label> -->
+                    <input type="text" id="friendName" name="friendName" height="20" size="15" placeholder="Search Friends">
                     <input type="submit" value="Submit">
                  </form>
+                </div>
+                <div>
                 <!-- <input type="search" id="friendSearch" name="fsearch" placeholder="Search Friends"><input type="submit"> -->
                 <a class="navbar-brand" href="/logout">
                     <p id="logout">Logout </p>
                 </a>
-                
             </div>
+            
     </nav>
     <section class="searchAdd">
         <div class="container text-center justify-content-center">
@@ -41,7 +43,7 @@
     <section id="filterBtn">
         <div class="container">
             <div class="row justify-content-md-center">
-                <div id = "changePrice" class="col-1 dropdown">
+                <div id = "changePrice" class="dropdown">
                     <select name="price" class="dropSize">
                         <option selected disabled>Price</option>
                         <option value="$">$</option>
@@ -49,7 +51,7 @@
                         <option value="$$$">$$$</option>
                     </select>
                 </div>
-                <div id = "changeRating" class="col-1 dropdown">
+                <div id = "changeRating" class="dropdown">
                     <select name="rating" class="dropSize">
                         <option selected disabled>Rating</option>
                         <option value="0">0</option>
@@ -60,14 +62,14 @@
                         <option value="5">5</option>
                     </select>
                 </div>
-                <div id = "changeLocation" class="col-1 dropdown">
+                <div id = "changeLocation" class="dropdown">
                     <select name="location" class="dropSize">
                         <option selected disabled>Location</option>
                         <option value="78736">78736</option>
                         <option value="77024">77024</option>
                     </select>
                 </div>
-                <div id = "changeFoodType" class="col-1 dropdown">
+                <div id = "changeFoodType" class="dropdown">
                     <select name="foodType" class="dropSize">
                         <option selected disabled>Food Type</option>
                         <option value="american">American</option>
@@ -76,7 +78,7 @@
                         <option value="fusion">Fusion</option>
                     </select>
                 </div>
-                <div id = "changeOccasion" class="col-1 dropdown" id="occasion">
+                <div id = "changeOccasion" class="dropdown">
                     <select name="occasion" class="dropSize">
                         <option selected disabled>Occasion</option>
                         <option value="quickBite">Quick Bite</option>
