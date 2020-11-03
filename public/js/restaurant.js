@@ -8,6 +8,7 @@ $(document).ready(() => {
     const description = $("#description")
     const reviewSubmit = $("#reviewSubmit");
     const reviewForm = $("#reviewForm");
+    const deleteReview = $("#deleteReview")
 
 
     reviewForm.on("submit", event => {
@@ -21,7 +22,7 @@ $(document).ready(() => {
             occasion: occasion.val().trim(),
             description: description.val().trim(),
         };
-    console.log(restaurantData)
+         console.log(restaurantData)
         if (!restaurantData.restName || !restaurantData.rating ||!restaurantData.price || !restaurantData.occasion || !restaurantData.description) {
             return;
         }
@@ -36,6 +37,7 @@ $(document).ready(() => {
         description.val("");
 
 });
+
 
 
 function reviewInfo(restName ,rating, foodType, zipcode, price, occasion, description) {

@@ -2,6 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
+
 module.exports = (app) => {
     // Using the passport.authenticate middleware with our local strategy.
     // If the user has valid login credentials, send them to the members page.
@@ -87,15 +88,15 @@ module.exports = (app) => {
         if (req.user) {
             query.userId = req.user.id;
         };
-                db.Restaurant.create({
-                    restaurantName: req.body.restName,
-                    description: req.body.description,
-                    rating: req.body.rating,
-                    foodType: req.body.foodType,
-                    zipcode: req.body.zipcode,
-                    occasion: req.body.occasion,
-                    price: req.body.price,
-                    UserId: query.userId
+             db.Restaurant.create({
+                restaurantName: req.body.restName,
+                description: req.body.description,
+                rating: req.body.rating,                                               
+                foodType: req.body.foodType,
+                zipcode: req.body.zipcode,
+                occasion: req.body.occasion,
+                price: req.body.price,
+                UserId: query.userId
                 }).then(() => {
                     res.json({});
                 }).catch(err => {
@@ -104,13 +105,19 @@ module.exports = (app) => {
                 });
                 console.log("create restaurant:", req.body)
     }); 
-    
 
+
+    app.delete("/api/restaurant_data/:restaurantName", (req, res) => {
+       db.Restaurant.destroy({where: {restaurantName: req.params.restaurantName} }).then(() => {
+        res.json({});
+    }).catch(err => {
+        console.warn(`failed to delete restaurant:`, `${err.message}`);
+        res.status(500).json(err);
+    });
+
+      });
+      
 };
-
-
-
-
 
 
 
