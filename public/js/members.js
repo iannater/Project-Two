@@ -33,42 +33,42 @@ $(document).ready(() => {
                 console.log(resName, foodType, rating, description, occasion, price)
                 const cardBody = `
                 <div class="container">
-                <div class="row justify-content-center">
-                <div class="card shadow  bg-white rounded" style="width: 50rem; reviewCard">
-                <img src="./public/assets/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" class="card-img-top" alt="...">
-                <a data-resName="${resName}" class="deleteReview" href="/members" style="text-align: right" style="color: black" style="margin-right:10px">X</a>
-                <div class="card-body">
-                    <div class="row">
-                        <p id="restaurant" class="filterTitle col-3">Restaurant</p>
-                        <p id="foodType" class="filterTitle col-2">Food Type</p>
-                        <p id="rank" class="filterTitle col-2">Rank</p>
-                        <p id="price" class="filterTitle col-2">Price</p>
-                        <p id="occasion" class="filterTitle col-3">Occasion</p>
-                    </div>
-                    <div class="row resultsRow">
-                        <div class="col-3">
-                            <p id="restaurantResult" class="results ">${resName}</p>
-                        </div>
-                        <div class="col-2">
-                            <p id="restaurantResult" class="results ">${foodType}</p>
-                        </div>
-                        <div class="col-2">
-                            <p id="rankResult" class="results">${rating}</p>
-                        </div>
-                        <div class="col-2">
-                            <p id="priceResult" class="results">${price}</p>
-                        </div>
-                        <div class="col-3">
-                            <p id="occasionResult" class="results">${occasion}</p>
-                        </div>
-                    </div>
-                    <p class="noteTitle">Notes</p>
-                    <p class="card-text">${description}
-                    </p>
+            <div class="row justify-content-center">
+            <div class="card shadow  bg-white rounded" style="width: 35rem; reviewCard">
+            <img src="/assets/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" class="card-img-top" alt="..." height="300px">
+            
+            <div class="card-body">
+                <div class="row">
+                    <p id="restaurant" class="filterTitle col-3">Restaurant</p>
+                    <p id="foodType" class="filterTitle col-2">Food Type</p>
+                    <p id="rank" class="filterTitle col-2">Rank</p>
+                    <p id="price" class="filterTitle col-2">Price</p>
+                    <p id="occasion" class="filterTitle col-3">Occasion</p>
                 </div>
+                <div class="row resultsRow">
+                    <div class="col-3">
+                        <p id="restaurantResult" class="results ">${resName}</p>
+                    </div>
+                    <div class="col-2">
+                        <p id="restaurantResult" class="results ">${foodType}</p>
+                    </div>
+                    <div class="col-2">
+                        <p id="rankResult" class="results">${rating}</p>
+                    </div>
+                    <div class="col-2">
+                        <p id="priceResult" class="results">${price}</p>
+                    </div>
+                    <div class="col-3">
+                        <p id="occasionResult" class="results">${occasion}</p>
+                    </div>
+                </div>
+                <p class="noteTitle">Notes</p>
+                <p class="card-text">${description}
+                </p>
             </div>
-            </div>
-            </div>`;
+        </div>
+        </div>
+        </div>`;
     
             $("#cardPopulation").prepend(cardBody);
             }
@@ -214,5 +214,3 @@ $(document).ready(() => {
     })
  
 });
-
-
