@@ -1,24 +1,19 @@
 $(document).ready(() => {
-
-
     const deleteReview = $(".deleteReview");
     const reviewCard = $(".reviewCard");
-    
-
     $.get("/api/user_data").then(data => {
-        $("#profileName").text(data.firstName + " " + data.lastName + "'s FoodBook" );
+        $("#profileName").text(data.firstName + " " + data.lastName + "'s FoodBook");
     });
-
 
     //this code works
     $("#addreview").on("click", event => {
-       event.preventDefault();
-       console.log("You succesfully clicked addreview button on the internet");
-       console.log("the user's id number is: " + userNumber);
-       $.post("/api/newReview")
+        event.preventDefault();
+        console.log("You succesfully clicked addreview button on the internet");
+        console.log("the user's id number is: " + userNumber);
+        $.post("/api/newReview")
     });
 
-    function displayFriend ( {id} ) {
+    function displayFriend({ id }) {
         console.log(id);
         $.get("/api/restaurant_data/" + id).then(data => {
             console.log(data)
@@ -69,10 +64,10 @@ $(document).ready(() => {
             </div>
             </div>
             </div>`;
-    
-            $("#cardPopulation").prepend(cardBody);
+
+                $("#cardPopulation").prepend(cardBody);
             }
-            
+
         })
     }
 
@@ -82,34 +77,34 @@ $(document).ready(() => {
         console.log("You succesfully clicked search friend button");
         let friend = $("#friendName").val();
         console.log("the user's friend name is: " + friend);
-        $.get(`/api/findFriendId/${friend}`).then(data =>{
+        $.get(`/api/findFriendId/${friend}`).then(data => {
             console.log(data);
-            for (let i=0; i < data.length; i++){
+            for (let i = 0; i < data.length; i++) {
                 displayFriend(data[i]);
-            }   
+            }
         })
-     });
+    });
 
 
     const apiDelete = (data) => {
         return $.ajax({
-          url: "api/restaurant_data/" + data,
-          method: "DELETE",
+            url: "api/restaurant_data/" + data,
+            method: "DELETE",
         }).then(() => {
             window.location.reload();
         });
-      };
+    };
 
     $(document).on("click", ".deleteReview",
-       function (event) {
-        event.preventDefault();
-        console.log("Review has been deleted")
-        console.log(this)
+        function (event) {
+            event.preventDefault();
+            console.log("Review has been deleted")
+            console.log(this)
 
-       const resname = $(this).attr("data-resname")
-       console.log(resname); 
-       apiDelete(resname);
-    });
+            const resname = $(this).attr("data-resname")
+            console.log(resname);
+            apiDelete(resname);
+        });
 
     $.get("/api/restaurant_data").then(data => {
         for (let index = 0; index < data.length; index++) {
@@ -158,9 +153,9 @@ $(document).ready(() => {
         </div>
         </div>`;
 
-        $("#cardPopulation").prepend(cardBody);
+            $("#cardPopulation").prepend(cardBody);
         }
-        
+
     })
 
     $("#changePrice").on("change", "select", function (event) {
@@ -168,17 +163,17 @@ $(document).ready(() => {
         console.log("You succesfully changed the price");
         let newPrice = $("#changePrice option:selected").text()
         console.log("the new price to search for is: " + newPrice);
-        $.get(`/api/filterBtn/${newPrice}`).then(data =>{
+        $.get(`/api/filterBtn/${newPrice}`).then(data => {
             console.log(data);
         })
-    })   
+    })
 
     $("#changeRating").on("change", "select", function (event) {
         event.preventDefault();
         console.log("You succesfully changed the rating");
         let newRating = $("#changeRating option:selected").val()
         console.log("the new rating to search for is: " + newRating);
-        $.get(`/api/filterRating/${newRating}`).then(data =>{
+        $.get(`/api/filterRating/${newRating}`).then(data => {
             console.log(data);
         })
     })
@@ -188,7 +183,7 @@ $(document).ready(() => {
         console.log("You succesfully changed the location");
         let newLocation = $("#changeLocation option:selected").val()
         console.log("the new location to search for is: " + newLocation);
-        $.get(`/api/filterLocation/${newLocation}`).then(data =>{
+        $.get(`/api/filterLocation/${newLocation}`).then(data => {
             console.log(data);
         })
     })
@@ -198,7 +193,7 @@ $(document).ready(() => {
         console.log("You succesfully changed the food type");
         let newFoodType = $("#changeFoodType option:selected").text();
         console.log("the new food type to search for is: " + newFoodType);
-        $.get(`/api/filterFoodType/${newFoodType}`).then(data =>{
+        $.get(`/api/filterFoodType/${newFoodType}`).then(data => {
             console.log(data);
         })
     })
@@ -208,11 +203,11 @@ $(document).ready(() => {
         console.log("You succesfully changed the occasion");
         let newOccasion = $("#changeOccasion option:selected").text();
         console.log("the new occasion to search for is: " + newOccasion);
-        $.get(`/api/filterOccasion/${newOccasion}`).then(data =>{
+        $.get(`/api/filterOccasion/${newOccasion}`).then(data => {
             console.log(data);
         })
     })
- 
+
 });
 
 
