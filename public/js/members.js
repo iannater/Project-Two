@@ -212,7 +212,7 @@ function displaySearch (data) {
     </div>
     </div>
     </div>`;
-    $("#cardPopulation").empty();
+    
     $("#cardPopulation").prepend(cardBody);
     }
 }
@@ -224,6 +224,7 @@ function displaySearch (data) {
         console.log("the new price to search for is: " + newPrice);
         $.get(`/api/filterBtn/${newPrice}`).then(data =>{
             console.log(data);
+            $("#cardPopulation").empty();
             displaySearch(data)
         })
     })   
@@ -235,6 +236,7 @@ function displaySearch (data) {
         console.log("the new rating to search for is: " + newRating);
         $.get(`/api/filterRating/${newRating}`).then(data =>{
             console.log(data);
+            $("#cardPopulation").empty();
             displaySearch(data)
         })
     })
@@ -257,6 +259,7 @@ function displaySearch (data) {
         console.log("the new food type to search for is: " + newFoodType);
         $.get(`/api/filterFoodType/${newFoodType}`).then(data =>{
             console.log(data);
+            $("#cardPopulation").empty();
             displaySearch(data)
         })
     })
@@ -268,6 +271,7 @@ function displaySearch (data) {
         console.log("the new occasion to search for is: " + newOccasion);
         $.get(`/api/filterOccasion/${newOccasion}`).then(data =>{
             console.log(data);
+            $("#cardPopulation").empty();
             displaySearch(data)
         })
     })
