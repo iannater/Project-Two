@@ -111,7 +111,11 @@ $(document).ready(() => {
        apiDelete(resname);
     });
 
-    $.get("/api/restaurant_data").then(data => {
+
+    displayRestaurants();
+
+    function displayRestaurants () { 
+        $.get("/api/restaurant_data").then(data => {
         for (let index = 0; index < data.length; index++) {
             const resName = data[index].restaurantName;
             const foodType = data[index].foodType
@@ -162,6 +166,56 @@ $(document).ready(() => {
         }
         
     })
+}
+function displaySearch (data) { 
+    for (let index = 0; index < data.length; index++) {
+        const resName = data[index].restaurantName;
+        const foodType = data[index].foodType
+        const rating = data[index].rating
+        const description = data[index].description
+        const occasion = data[index].occasion
+        const price = data[index].price
+        const cardBody = `
+        <div class="container">
+        <div class="row justify-content-center">
+        <div class="card shadow  bg-white rounded" style="width: 35rem; reviewCard">
+        <img src="/assets/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" class="card-img-top" alt="..." height="300px">
+        <div class="card-body">
+            <div class="row">
+                <p id="restaurant" class="filterTitle col-3">Restaurant</p>
+                <p id="foodType" class="filterTitle col-2">Food Type</p>
+                <p id="rank" class="filterTitle col-2">Rank</p>
+                <p id="price" class="filterTitle col-2">Price</p>
+                <p id="occasion" class="filterTitle col-3">Occasion</p>
+            </div>
+            <div class="row resultsRow">
+                <div class="col-3">
+                    <p id="restaurantResult" class="results ">${resName}</p>
+                </div>
+                <div class="col-2">
+                    <p id="restaurantResult" class="results ">${foodType}</p>
+                </div>
+                <div class="col-2">
+                    <p id="rankResult" class="results">${rating}</p>
+                </div>
+                <div class="col-2">
+                    <p id="priceResult" class="results">${price}</p>
+                </div>
+                <div class="col-3">
+                    <p id="occasionResult" class="results">${occasion}</p>
+                </div>
+            </div>
+            <p class="noteTitle">Notes</p>
+            <p class="card-text">${description}
+            </p>
+        </div>
+    </div>
+    </div>
+    </div>`;
+    $("#cardPopulation").empty();
+    $("#cardPopulation").prepend(cardBody);
+    }
+}
 
     $("#changePrice").on("change", "select", function (event) {
         event.preventDefault();
@@ -170,6 +224,7 @@ $(document).ready(() => {
         console.log("the new price to search for is: " + newPrice);
         $.get(`/api/filterBtn/${newPrice}`).then(data =>{
             console.log(data);
+            displaySearch(data)
         })
     })   
 
@@ -180,6 +235,7 @@ $(document).ready(() => {
         console.log("the new rating to search for is: " + newRating);
         $.get(`/api/filterRating/${newRating}`).then(data =>{
             console.log(data);
+            displaySearch(data)
         })
     })
 
@@ -190,6 +246,7 @@ $(document).ready(() => {
         console.log("the new location to search for is: " + newLocation);
         $.get(`/api/filterLocation/${newLocation}`).then(data =>{
             console.log(data);
+            displaySearch(data);
         })
     })
 
@@ -200,6 +257,7 @@ $(document).ready(() => {
         console.log("the new food type to search for is: " + newFoodType);
         $.get(`/api/filterFoodType/${newFoodType}`).then(data =>{
             console.log(data);
+            displaySearch(data)
         })
     })
 
@@ -210,6 +268,7 @@ $(document).ready(() => {
         console.log("the new occasion to search for is: " + newOccasion);
         $.get(`/api/filterOccasion/${newOccasion}`).then(data =>{
             console.log(data);
+            displaySearch(data)
         })
     })
  
