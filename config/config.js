@@ -1,9 +1,11 @@
-{
+require('dotenv').config();
+
+module.exports = {
     "development": {
-        "username": "root",
-        "password": "BriggoK2",
+        "username": process.env.DB_USER,
+        "password": process.env.DB_PASS,
         "database": "passport_demo",
-        "host": "localhost",
+        "host": process.env.DB_HOST,
         "dialect": "mysql"
     },
     "test": {
@@ -17,4 +19,4 @@
         "use_env_variable": "JAWSDB_URL",
         "dialect": "mysql"
     }
-}
+};
