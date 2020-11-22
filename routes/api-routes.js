@@ -61,8 +61,8 @@ module.exports = (app) => {
         let userId = req.params.id;
         if (!userId) {
             userId = req.user.id;
-        };
-        query.userId = userId
+        }
+        query.userId = userId;
         // returning all restaurants
         db.Restaurant.findAll({
             where: query
@@ -78,43 +78,43 @@ module.exports = (app) => {
                 restaurants: data
             };
             console.log(viewData);
-            res.render("home", viewData)
-    
-        })
-    
-    })
+            res.render("home", viewData);
+
+        });
+
+    });
     app.post("/api/newReview", (req, res) => {
-        console.log("reviews post:", req.body)
+        console.log("reviews post:", req.body);
         const query = {};
         if (req.user) {
             query.userId = req.user.id;
-        };
-             db.Restaurant.create({
-                restaurantName: req.body.restName,
-                description: req.body.description,
-                rating: req.body.rating,                                               
-                foodType: req.body.foodType,
-                zipcode: req.body.zipcode,
-                occasion: req.body.occasion,
-                price: req.body.price,
-                UserId: query.userId
-                }).then(() => {
-                    res.json({});
-                }).catch(err => {
-                    console.warn(`failed to create restaurant:`, `${err.message}`);
-                    res.status(500).json(err);
-                });
-                console.log("create restaurant:", req.body)
-    }); 
+        }
+        db.Restaurant.create({
+            restaurantName: req.body.restName,
+            description: req.body.description,
+            rating: req.body.rating,
+            foodType: req.body.foodType,
+            zipcode: req.body.zipcode,
+            occasion: req.body.occasion,
+            price: req.body.price,
+            UserId: query.userId
+        }).then(() => {
+            res.json({});
+        }).catch(err => {
+            console.warn("failed to create restaurant:", `${err.message}`);
+            res.status(500).json(err);
+        });
+        console.log("create restaurant:", req.body);
+    });
 
 
     app.delete("/api/restaurant_data/:restaurantName", (req, res) => {
-       db.Restaurant.destroy({where: {restaurantName: req.params.restaurantName} }).then(() => {
-        res.json({});
-    }).catch(err => {
-        console.warn(`failed to delete restaurant:`, `${err.message}`);
-        res.status(500).json(err);
-    });
+        db.Restaurant.destroy({ where: { restaurantName: req.params.restaurantName } }).then(() => {
+            res.json({});
+        }).catch(err => {
+            console.warn("failed to delete restaurant:", `${err.message}`);
+            res.status(500).json(err);
+        });
 
     });
 
@@ -125,16 +125,16 @@ module.exports = (app) => {
         if (req) {
             query.firstName = req.params.firstName;
             console.log(query.firstName);
-        };
+        }
         db.User.findAll({
             where: {
                 firstName: query.firstName
             }
         }).then((data) => {
-            
-            console.log("Your friends ID: " + data );
-            res.json(data);      
-       });
+
+            console.log("Your friends ID: " + data);
+            res.json(data);
+        });
     });
 
     app.get("/api/filterBtn/:price", (req, res) => {
@@ -143,16 +143,16 @@ module.exports = (app) => {
         if (req) {
             query.price = req.params.price;
             console.log(query.price);
-        };
+        }
         db.Restaurant.findAll({
             where: {
                 price: query.price
             }
         }).then((data) => {
-            
-            console.log("Your restaurants are: " + data );
-            res.json(data);      
-       });
+
+            console.log("Your restaurants are: " + data);
+            res.json(data);
+        });
     });
 
     app.get("/api/filterRating/:rating", (req, res) => {
@@ -161,16 +161,16 @@ module.exports = (app) => {
         if (req) {
             query.rating = req.params.rating;
             console.log(query.rating);
-        };
+        }
         db.Restaurant.findAll({
             where: {
                 rating: query.rating
             }
         }).then((data) => {
-            
-            console.log("Your restaurants are: " + data );
-            res.json(data);      
-       });
+
+            console.log("Your restaurants are: " + data);
+            res.json(data);
+        });
     });
 
     app.get("/api/filterLocation/:zipcode", (req, res) => {
@@ -179,16 +179,16 @@ module.exports = (app) => {
         if (req) {
             query.zipcode = req.params.zipcode;
             console.log(query.zipcode);
-        };
+        }
         db.Restaurant.findAll({
             where: {
                 zipcode: query.zipcode
             }
         }).then((data) => {
-            
-            console.log("Your restaurants are: " + data );
-            res.json(data);      
-       });
+
+            console.log("Your restaurants are: " + data);
+            res.json(data);
+        });
     });
 
     app.get("/api/filterFoodType/:foodType", (req, res) => {
@@ -197,16 +197,16 @@ module.exports = (app) => {
         if (req) {
             query.foodType = req.params.foodType;
             console.log(query.foodType);
-        };
+        }
         db.Restaurant.findAll({
             where: {
                 foodType: query.foodType
             }
         }).then((data) => {
-            
-            console.log("Your restaurants are: " + data );
-            res.json(data);      
-       });
+
+            console.log("Your restaurants are: " + data);
+            res.json(data);
+        });
     });
 
     app.get("/api/filterOccasion/:occasion", (req, res) => {
@@ -215,18 +215,18 @@ module.exports = (app) => {
         if (req) {
             query.occasion = req.params.occasion;
             console.log(query.occasion);
-        };
+        }
         db.Restaurant.findAll({
             where: {
                 occasion: query.occasion
             }
         }).then((data) => {
-            
-            console.log("Your restaurants are: " + data );
-            res.json(data);      
-       });
+
+            console.log("Your restaurants are: " + data);
+            res.json(data);
+        });
     });
-      
+
 };
 
 

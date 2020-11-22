@@ -9,12 +9,15 @@ const hbs = require("express-handlebars");
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
+//requiring compression
+const compression = require("compression");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+app.use(compression());
 // Adding Handlebars as the engine
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts/'}));
-app.set('view engine', 'hbs')
+app.engine("hbs", hbs({extname: "hbs", defaultLayout: "main", layoutsDir: __dirname + "/views/layouts/"}));
+app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));

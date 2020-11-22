@@ -32,8 +32,8 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
     Restaurant.associate = (db) => {
-        Restaurant.belongsTo(db.User)
-    }
+        Restaurant.belongsTo(db.User);
+    };
     return Restaurant;
 };
 

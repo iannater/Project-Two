@@ -4,6 +4,21 @@ $(document).ready(() => {
     const emailInput = $("input#email-input");
     const passwordInput = $("input#password-input");
 
+    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+    function loginUser(email, password) {
+        $.post("/api/login", {
+            email: email,
+            password: password
+        }).then(() => {
+            window.location.replace("/members");
+            // If there's an error, log the error
+        }).catch(err => {
+            const message = err.responseText;
+            console.warn(`Login Form error; message: ${message}`);
+            $("#alert .msg").text(message);
+            $("#alert").fadeIn(500);
+        });
+    }
     // When the form is submitted, we validate there's an email and password entered
     loginForm.on("submit", event => {
         event.preventDefault();
@@ -21,21 +36,5 @@ $(document).ready(() => {
         emailInput.val("");
         passwordInput.val("");
     });
-
-    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function loginUser(email, password) {
-        $.post("/api/login", {
-            email: email,
-            password: password
-        }).then(() => {
-            window.location.replace("/members");
-            // If there's an error, log the error
-        }).catch(err => {
-            const message = err.responseText;
-            console.warn(`Login Form error; message: ${message}`);
-            $("#alert .msg").text(message);
-            $("#alert").fadeIn(500);
-        });
-    }
 });
 
